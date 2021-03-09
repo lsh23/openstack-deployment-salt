@@ -15,7 +15,8 @@ horizon-conf:
         - source: salt://horizon/conf/controller-horizon-local_settings.py
     - template: jinja
 
-apache2:
+apache2-reload:
   service.running:
+    - name: apache2
     - watch:
       - file: /etc/openstack-dashboard/local_settings.py

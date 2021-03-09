@@ -8,7 +8,7 @@ create neutron db:
   mysql_database.present:
     - name: neutron
 
-grant_localhost:
+neutron grant_localhost:
   mysql_user.present:
     - name: neutron
     - password: {{ pillar['neutron_dbpass'] }}
@@ -19,7 +19,7 @@ grant_localhost:
     - user: neutron
     - host: localhost
 
-grant_anyhost:
+neutron grant_anyhost:
   mysql_user.present:
     - name: neutron
     - password: {{ pillar['neutron_dbpass'] }}
@@ -30,7 +30,7 @@ grant_anyhost:
     - user: neutron
     - host: '%'
 
-neutron-server:
+neutron neutron-server:
   file.managed:
     - names:
       - /etc/neutron/neutron.conf:

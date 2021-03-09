@@ -26,7 +26,7 @@ create-db:
   mysql_database.present:
     - name: keystone
 
-grant-localhost:
+keystone grant-localhost:
   mysql_user.present:
     - name: keystone
     - password: {{ pillar['keystone_dbpass'] }}
@@ -37,7 +37,7 @@ grant-localhost:
     - user: keystone
     - host: localhost
 
-grant-anyhost:
+keystone grant-anyhost:
   mysql_user.present:
     - name: keystone
     - password: {{ pillar['keystone_dbpass'] }}

@@ -27,7 +27,7 @@ create_db:
   mysql_database.present:
     - name: glance
 
-grant_localhost:
+glance grant_localhost:
   mysql_user.present:
     - name: glance
     - password: {{ pillar['glance_dbpass'] }}
@@ -38,7 +38,7 @@ grant_localhost:
     - user: glance
     - host: localhost
 
-grant_anyhost:
+glance grant_anyhost:
   mysql_user.present:
     - name: glance
     - password: {{ pillar['glance_dbpass'] }}
