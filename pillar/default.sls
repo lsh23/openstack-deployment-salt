@@ -1,14 +1,15 @@
+{% set management_interface_name = 'eth1' %}
+
 provider_interface_name: eth0
 provider_network_cider: 192.168.0.0/24
 provider_network_gateway: 192.168.0.1
 
-management_interface_name: eth1
+management_interface_name: {{ management_interface_name }}
 management_network_cider: 10.0.0.0/24
 management_network_gateway: 10.0.0.1
 
 controller_m_ip: 10.0.0.11
-compute_m_ip: 10.0.0.31
-my_m_ip: 10.0.0.31
+my_m_ip: {{ grains['ip4_interfaces'][management_interface_name][0] }}
 os_root_pass: 1234
 db_root_pass: 1234
 
