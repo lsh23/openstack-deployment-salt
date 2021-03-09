@@ -30,7 +30,7 @@ neutron grant_anyhost:
     - user: neutron
     - host: '%'
 
-neutron neutron-server:
+neutron-server:
   file.managed:
     - names:
       - /etc/neutron/neutron.conf:
