@@ -1,22 +1,10 @@
 install_controller_packages:
   pkg.installed:
     - pkgs:
-      - mariadb-server
-      - python-pymysql
       - rabbitmq-server
       - memcached
       - python-memcache
       - etcd
-
-mysql:
-  file.managed:
-    - names:
-      - /etc/mysql/mariadb.conf.d/99-openstack.cnf:
-        - source: salt://controller/conf/99-openstack.cnf
-    - template: jinja
-  service.running:
-    - watch:
-      - file: /etc/mysql/mariadb.conf.d/99-openstack.cnf
 
 rabbitmq:
   rabbitmq_user.present:

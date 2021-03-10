@@ -3,6 +3,7 @@ base:
     - common
   'sh-controller':
     - controller
+    - mysql
     - nova-api
     - neutron-server
     - cinder-api

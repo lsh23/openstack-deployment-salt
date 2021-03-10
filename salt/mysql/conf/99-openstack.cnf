@@ -1,5 +1,5 @@
 [mysqld]
-bind-address = {{ pillar['controller_m_ip'] }}
+bind-address = {{ pillar['my_m_ip'] }}
 
 default-storage-engine = innodb
 innodb_file_per_table = on

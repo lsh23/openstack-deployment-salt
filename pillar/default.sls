@@ -9,6 +9,7 @@ management_network_cider: 10.0.0.0/24
 management_network_gateway: 10.0.0.1
 
 controller_m_ip: 10.0.0.11
+mysql_m_ip: 10.0.0.11
 my_m_ip: {{ grains['ip4_interfaces'][management_interface_name][0] }}
 
 rabbit_pass: 1234

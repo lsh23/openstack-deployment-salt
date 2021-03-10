@@ -4,32 +4,6 @@ install_neutron-server_packages:
       - neutron-server
       - neutron-plugin-ml2
 
-create neutron db:
-  mysql_database.present:
-    - name: neutron
-
-neutron grant_localhost:
-  mysql_user.present:
-    - name: neutron
-    - password: {{ pillar['neutron_dbpass'] }}
-    - host: localhost
-  mysql_grants.present:
-    - grant: all privileges
-    - database: neutron.*
-    - user: neutron
-    - host: localhost
-
-neutron grant_anyhost:
-  mysql_user.present:
-    - name: neutron
-    - password: {{ pillar['neutron_dbpass'] }}
-    - host: '%'
-  mysql_grants.present:
-    - grant: all privileges
-    - database: neutron.*
-    - user: neutron
-    - host: '%'
-
 neutron-server:
   file.managed:
     - names:
