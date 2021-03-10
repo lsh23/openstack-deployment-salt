@@ -8,7 +8,7 @@ mysql:
   file.managed:
     - names:
       - /etc/mysql/mariadb.conf.d/99-openstack.cnf:
-        - source: salt://controller/conf/99-openstack.cnf
+        - source: salt://mysql/conf/99-openstack.cnf
     - template: jinja
   service.running:
     - watch:
