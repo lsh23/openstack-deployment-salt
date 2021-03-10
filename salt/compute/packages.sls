@@ -10,7 +10,7 @@ nova-compute-conf:
       - /etc/nova/nova.conf:
         - source: salt://compute/conf/nova.conf
 {% set kvm_available = salt['cmd.run']("egrep -c '(vmx|svm)' /proc/cpuinfo") %}
-{% if kvm_available is equalto(0) %}
+{% if kvm_available is equalto('0') %}
       - /etc/nova/nova-compute.conf:
         - source: salt://compute/conf/nova-compute.conf
 {% endif %}
