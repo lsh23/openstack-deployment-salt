@@ -4,7 +4,7 @@ install_compute_packages:
       - nova-compute
       - neutron-linuxbridge-agent
 
-nova-compute-conf:
+nova-compute:
   file.managed:
     - names:
       - /etc/nova/nova.conf:
@@ -15,6 +15,10 @@ nova-compute-conf:
         - source: salt://compute/conf/nova-compute.conf
 {% endif %}
     - template: jinja
+  service.running:
+    - watch:
+      - file: /etc/nova/*
+
 
 
 neutron-linuxbridge-agent-conf:
